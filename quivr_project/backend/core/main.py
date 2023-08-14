@@ -1,4 +1,6 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 import pypandoc
 import sentry_sdk
@@ -17,6 +19,8 @@ from routes.prompt_routes import prompt_router
 from routes.subscription_routes import subscription_router
 from routes.upload_routes import upload_router
 from routes.user_routes import user_router
+
+import uvicorn
 
 logger = get_logger(__name__)
 
@@ -77,3 +81,7 @@ def handle_request_validation_error(app: FastAPI):
 
 
 handle_request_validation_error(app)
+
+if __name__ == '__main__':
+    # load_dotenv()
+    uvicorn.run(app, host="0.0.0.0", port=5050)
