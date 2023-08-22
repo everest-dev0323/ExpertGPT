@@ -134,7 +134,10 @@ CREATE TABLE IF NOT EXISTS brains (
   max_tokens INT,
   temperature FLOAT,
   openai_api_key TEXT,
-  prompt_id UUID REFERENCES prompts(id)
+  prompt_id UUID REFERENCES prompts(id),
+  extraversion INT,
+  neuroticism INT,
+  conscientiousness INT
 );
 
 
