@@ -1,4 +1,6 @@
 FROM node:18-alpine
+# FROM node:18.13.0-alpine
+
 # Install Python and essential build tools
 RUN apk add --update --no-cache python3 make g++ && ln -sf python3 /usr/bin/python
 RUN python3 -m ensurepip
@@ -24,8 +26,8 @@ COPY . .
 # Build the Next.js application
 RUN yarn build
 
-# Ensure port 3000 is accessible to our system
-EXPOSE 3000
+# Ensure port 4000 is accessible to our system
+EXPOSE 4000
 
 # Run yarn start, as we would via the command line 
 CMD ["yarn", "start"]
